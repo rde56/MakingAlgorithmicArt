@@ -1,0 +1,32 @@
+function my_plant(x, y) {
+	//Middle flower
+	var x1 = x;
+	var y1 = y - 200;
+
+	//Left flower
+	var x2 = x - 100;
+	var y2 = y - 150;
+
+	//Right flower
+	var x3 = x + 100;
+	var y3 = y - 150;
+
+	//draw the stalks
+	//Set line color and thickness
+	stroke(0, 255, 0, 100);
+	strokeWeight(2);
+	//Draw middle stalk
+	line(x, y, x1, y1);
+	//Draw left stalk
+	line(x, y, x2, y2);
+	//Draw right stalk
+	line(x, y, x3, y3);
+
+	//draw the flower
+	//draw middle flowers
+	my_flower(x1, y1, 50);
+	//draw left flower
+	my_flower(x2, y2, 50);
+	//draw right flower
+	my_flower(x3, y3, 50);
+}

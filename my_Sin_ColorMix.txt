@@ -1,0 +1,19 @@
+function setup() {
+	createCanvas(800, 600);
+	background('white');
+	noLoop();
+}
+
+function draw() {
+
+	// x ranges from 0 to 800
+	for (var x = 0; x <= 800; x += 20) {
+		//For every point calculate a color
+		var red = 255;
+		var green = (sin(x / 100) + 1) * 127.5;
+		var blue = 255;
+		//draw colored square
+		fill(red, green, blue);
+		rect(x, 200, 20, 20);
+	}
+}

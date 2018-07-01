@@ -1,0 +1,5 @@
+//For defining a white background w/in a frame
+
+stroke(0);
+fill('white');
+rect(0, 0, canvasWidth, canvasHeight);
