@@ -1,0 +1,40 @@
+function setup() {
+	createCanvas(800, 600);
+	background(0);
+	noLoop();
+}
+
+function draw() {
+	/*For defining a white background w/in a frame
+			stroke(0);
+			fill('white');
+			rect(0, 0, 800, 600);*/
+
+	stroke(255, 0, 0, 100);
+	strokeWeight(2);
+
+	holocrux(400, 300, 250);
+	//holocrux(400, 400, 200);
+	//saveCanvas('myCanvas02', 'png');
+}
+//holocrux function takes location (x,y) and size s
+function holocrux(x, y, s) {
+
+	//ensure size s is more than zero
+	if (s > 6) {
+		fill(random(0, 255), random(0, 255), random(0, 255), 100)
+		ellipse(x, y, s);
+
+		//smaller holocrux just inside the main circle
+		holocrux(x + (s / 3), y, s / 3);
+		holocrux(x - (s / 3), y, s / 3);
+		holocrux(x, y + (s / 3), s / 3);
+		holocrux(x, y - (s / 3), s / 3);
+
+		//smaller holocurux just outside the main circle
+		holocrux(x + (2 * s / 3), y, s / 3);
+		holocrux(x - (2 * s / 3), y, s / 3);
+		holocrux(x, y + (2 * s / 3), s / 3);
+		holocrux(x, y - (2 * s / 3), s / 3);
+	}
+}
