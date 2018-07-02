@@ -1,0 +1,37 @@
+function setup() {
+	createCanvas(1000, 800);
+	background(0);
+	angleMode(DEGREES);
+	noLoop();
+}
+
+function draw() {
+	//For defining a white background w/in a frame
+	//stroke(0); noFill(); rect(0,0,799,599);
+
+	noStroke();
+
+	dragon(500, 400, 9);
+}
+
+// dragon function takes location (x,y) and depth d
+function dragon(x, y, d) {
+
+	fill(random(150, 255), random(0, 255), random(0, 255), 30);
+	ellipse(x, y, 10 * d);
+
+	fill(random(100, 255), random(180, 255), random(100, 255), 50);
+	ellipse(x, y, 16 * d);
+
+	// ensure size s is more than zero
+	if (d > 0) {
+		var x1 = x + (10 * d * cos(20 * d));
+		var y1 = y + (10 * d * sin(25 * d));
+		var x2 = x - (10 * d * cos(25 * d));
+		var y2 = y - (10 * d * sin(20 * d));
+
+		dragon(x1, y1, d - 1);
+		dragon(x2, y2, d - 1);
+	}
+
+}
