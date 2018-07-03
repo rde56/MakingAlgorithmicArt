@@ -1,0 +1,16 @@
+//tree function takes coordinates of tree,
+//angle, and current depth
+function tree(x1, y1, angle, depth) {
+	//length of branch
+	var length = 100 * Math.tanh(depth / 4);
+	//use angle to calculate endpoint of branch
+	var x2 = x1 - (length * sin(angle));
+	var y2 = y1 - (length * cos(angle));
+	line(x1, y1, x2, y2);
+	//new trees at angle +/- 15 degrees
+	//position at end of branch
+	if (depth > 1) {
+		tree(x2, y2, angle - 15, depth - 1);
+		tree(x2, y2, angle + 15, depth - 1);
+	}
+}
